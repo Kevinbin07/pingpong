@@ -21,13 +21,12 @@ app.use(express.static('client'));
 
 
 const indexRouter = require('./routes/indexRoutes')
+const matchRouter = require('./routes/indexRoutes')
 
 
 app.use('/', indexRouter);
+app.use('/match', matchRouter);
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
 
 app.listen(port, () => console.log(`Server listening to port ${port}`));
  
