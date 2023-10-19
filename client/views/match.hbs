@@ -16,10 +16,14 @@
 
 <div class="container-fluid buttons">
     <div class="row">
-        <div id="sendButton" class="col-9 button buttonLeft justify-content-center d-flex align-items-center text-center">
-            <i class="bi bi-check-lg"></i></div>
-        <div class="col-3 button buttonRight justify-content-center d-flex align-items-center text-center">
-            <i class="bi bi-x"></i></div>
+        <div id="sendButton"
+            class="col-9 button buttonLeft justify-content-center d-flex align-items-center text-center">
+            <i class="bi bi-check-lg"></i>
+        </div>
+        <div id="backButton"
+            class="col-3 button buttonRight justify-content-center d-flex align-items-center text-center">
+            <i class="bi bi-box-arrow-left"></i>
+        </div>
     </div>
 </div>
 
@@ -47,16 +51,24 @@
     }
 
 
-    var sendButton = document.getElementById("sendButton")  
+    var sendButton = document.getElementById("sendButton")
 
     sendButton.addEventListener("click", () => {
         var scoreLeft = parseInt(scoreLeftDiv.textContent);
         var scoreRight = parseInt(scoreRightDiv.textContent);
-        $.post('/match', {scoreLeft: scoreLeft, scoreRight: scoreRight}, function(result){
+        $.post('/match', { scoreLeft: scoreLeft, scoreRight: scoreRight }, function (result) {
             console.log(result)
-            
+        window.location.href = "/";
+
+
         })
     })
 
-</script>
+    var backButton = document.getElementById("backButton")
 
+    backButton.addEventListener("click", () => {
+        window.location.href = "/";
+    })
+
+
+</script>

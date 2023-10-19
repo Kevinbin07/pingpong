@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="/styling/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<div class="container-fluid buttons">
+    <div class="row h-100 justify-content-center align-items-start my-custom-top">
+        <div id="newmatchButton"
+            class="col-12 button buttonRight justify-content-center d-flex align-items-center text-center">
+            <i class="bi bi-box-arrow-in-right"></i>
+        </div>
+    </div>
+</div>
 
 
 <div class="container">
@@ -8,8 +16,8 @@
         <div class="col-1 col-md-3"></div>
         <div class="col-10 col-md-6 match" id="match"></div>
         <div class="col-1 col-md-3"></div>
-    </div>
 </div>
+
 
 
 <script>
@@ -28,5 +36,12 @@
 
             matchDiv.appendChild(div)
         })
+    })
+
+
+    var newmatchButton = document.getElementById("newmatchButton")
+
+    newmatchButton.addEventListener("click", () => {
+        window.location.href = "/match";
     })
 </script>

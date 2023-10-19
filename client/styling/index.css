@@ -1,4 +1,6 @@
-
+.match{
+    margin-top: 50px;
+}
 
 .matchDiv{
     border-radius: 5px;
@@ -6,4 +8,14 @@
     padding-left: 10px;
     background-color: rgba(128, 128, 128, 0.372);
 
+}
+.buttons {
+    font-size: xx-large;
+    font-size: 70px;
+    color: white;
+}
+
+.buttonRight {
+    background-color: rgb(35, 130, 0);
+    height: 40vh;
 }

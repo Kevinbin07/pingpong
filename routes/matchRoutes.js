@@ -23,16 +23,17 @@ router.get('/data', (req, res) => {
 
     try {
         const jsonData = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
+        const reversedData = jsonData.reverse();
 
-        res.send(jsonData);
-
-        jsonData.forEach(item => {
+        res.send(reversedData);
+        reversedData.forEach(item => {
             console.log(`Score Left: ${item.scoreLeft}, Score Right: ${item.scoreRight}, Timestamp: ${item.timestamp}`);
         });
     } catch (err) {
         console.error(err);
     }
 });
+
 
 router.post('/', (req, res) => {
     const scoreLeft = req.body.scoreLeft;
@@ -49,8 +50,7 @@ router.post('/', (req, res) => {
     jsonData.push({ scoreLeft, scoreRight, timestamp });
 
     fs.writeFileSync(dataFilePath, JSON.stringify(jsonData, null, 2), 'utf8');
-
-    res.json({ message: 'Data saved successfully' });
+    res.send("succes clown")
 });
 
 module.exports = router;
