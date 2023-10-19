@@ -1,1 +1,62 @@
-<h1>match</h1>
+<link rel="stylesheet" href="/styling/match.css">
+
+
+
+<div class="container-fluid scores">
+    <div class="row justify-content-center text-center">
+        <div class="col-6 scoresItem scoresLeft d-flex align-items-center">
+            <div id="scoreLeft" class="mx-auto">0</div>
+        </div>
+        <div class="col-6 scoresItem scoresRight d-flex align-items-center">
+            <div id="scoreRight" class="mx-auto">0</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid buttons">
+    <div class="row">
+        <div id="sendButton" class="col-9 button buttonLeft justify-content-center d-flex align-items-center text-center">
+            <i class="bi bi-check-lg"></i></div>
+        <div class="col-3 button buttonRight justify-content-center d-flex align-items-center text-center">
+            <i class="bi bi-x"></i></div>
+    </div>
+</div>
+
+
+
+<script>
+    const scoreLeftDiv = document.querySelector(".scoresLeft");
+    const scoreRightDiv = document.querySelector(".scoresRight");
+
+    scoreLeftDiv.addEventListener("click", () => {
+        incrementScore(scoreLeftDiv, "scoreLeft");
+    });
+
+    scoreRightDiv.addEventListener("click", () => {
+        incrementScore(scoreRightDiv, "scoreRight");
+    });
+
+    function incrementScore(scoreContainer, scoreElementId) {
+        const scoreElement = document.getElementById(scoreElementId);
+        let currentScore = parseInt(scoreElement.textContent);
+
+        currentScore++;
+
+        scoreElement.textContent = currentScore;
+    }
+
+
+    var sendButton = document.getElementById("sendButton")  
+
+    sendButton.addEventListener("click", () => {
+        var scoreLeft = parseInt(scoreLeftDiv.textContent);
+        var scoreRight = parseInt(scoreRightDiv.textContent);
+        $.post('/match', {scoreLeft: scoreLeft, scoreRight: scoreRight}, function(result){
+            console.log(result)
+            
+        })
+    })
+
+</script>
+

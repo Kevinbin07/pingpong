@@ -23,7 +23,7 @@ app.use(express.static('client'));
 
 
 const indexRouter = require('./routes/indexRoutes')
-const matchRouter = require('./routes/indexRoutes')
+const matchRouter = require('./routes/matchRoutes')
 
 
 app.use('/', indexRouter);

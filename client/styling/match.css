@@ -1,0 +1,39 @@
+.scores{
+    height: 85vh;
+    background-size: cover;
+}
+
+.buttons{
+    height: 100%;
+}
+
+.scoresItem{
+    height: 85vh;
+    color: white;
+    font-weight: 900;
+    font-size: 100px;
+}
+
+.scoresLeft{
+    background-color: blue;
+}
+
+.scoresRight{
+    background-color: rgb(255, 166, 0);
+}
+
+.buttons{
+    font-size: xx-large;
+    font-size: 70px;
+    color: white;
+}
+
+.buttonLeft{
+    background-color: rgb(35, 130, 0);
+    height: 15vh;
+}
+
+.buttonRight{
+    background-color: rgb(231, 46, 0);
+    height: 15vh;
+}
