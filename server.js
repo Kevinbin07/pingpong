@@ -7,6 +7,7 @@ const hbs = require('express-handlebars').engine;
 const port = 3000;
 
 app.use('/styling', express.static(__dirname + '/client/styling'))
+app.use('/images', express.static(__dirname + '/client/images'))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
