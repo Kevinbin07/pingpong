@@ -18,6 +18,22 @@ router.get('/', (req, res) => {
     res.render('match', { showHeader: false });
 });
 
+router.get('/data', (req, res) => {
+    const dataFilePath = path.join(__dirname, 'data', 'scores.json');
+
+    try {
+        const jsonData = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
+
+        res.send(jsonData);
+
+        jsonData.forEach(item => {
+            console.log(`Score Left: ${item.scoreLeft}, Score Right: ${item.scoreRight}, Timestamp: ${item.timestamp}`);
+        });
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 router.post('/', (req, res) => {
     const scoreLeft = req.body.scoreLeft;
     const scoreRight = req.body.scoreRight;
